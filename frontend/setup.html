@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin Setup</title></head>
+<body style="font-family:sans-serif; text-align:center; padding:50px;">
+  <h2>Admin Account Setup</h2>
+  <button onclick="setup()" style="padding:15px 30px;font-size:18px;cursor:pointer;background:#1e3a8a;color:white;border:none;border-radius:8px;">Create Admin Account</button>
+  <p id="result" style="margin-top:30px;font-size:18px;"></p>
+  <script>
+    async function setup() {
+      try {
+        const res = await fetch('http://localhost:5000/api/admin/setup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: 'Admin', email: 'admin@techstore.com', password: 'admin123' })
+        });
+        const data = await res.json();
+        document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+      } catch (err) {
+        document.getElementById('result').innerText = 'Error: ' + err.message;
+      }
+    }
+  </script>
+</body>
+</html>

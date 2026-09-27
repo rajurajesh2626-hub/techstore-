@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - TechStore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <a href="index.html" class="logo">TechStore</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart <span id="cart-count" class="badge">0</span></a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container products-section">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div id="cart-summary" style="margin-top:30px; text-align:right; display:none;">
+      <h3 style="font-size:24px; color:#1e3a8a;">Total: ₹<span id="cart-total">0</span></h3>
+      <button class="btn" style="width:auto; margin-top:15px; padding:12px 30px;" onclick="goToCheckout()">Proceed to Checkout</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 TechStore. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>renderCart();</script>
+</body>
+</html>

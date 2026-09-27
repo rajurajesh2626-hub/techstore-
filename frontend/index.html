@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechStore - Premium Clothing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <a href="index.html" class="logo">TechStore</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart <span id="cart-count" class="badge">0</span></a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Premium Clothing Collection</h1>
+      <p>Discover the latest trends in fashion</p>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="container products-section">
+    <h2>Our Products</h2>
+    <div id="products" class="products-grid">
+      <p>Loading products...</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 TechStore. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    loadProducts();
+  </script>
+</body>
+</html>

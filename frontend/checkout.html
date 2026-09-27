@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - TechStore</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <a href="index.html" class="logo">TechStore</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart <span id="cart-count" class="badge">0</span></a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container products-section">
+    <h2>Checkout</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px; margin-top:20px;">
+      
+      <!-- Shipping Address -->
+      <div style="background:white; padding:25px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.08);">
+        <h3 style="color:#1e3a8a; margin-bottom:20px;">Shipping Address</h3>
+        <input type="text" id="ship-name" placeholder="Full Name" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin-bottom:12px;">
+        <input type="tel" id="ship-phone" placeholder="Phone Number" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin-bottom:12px;">
+        <input type="text" id="ship-street" placeholder="Street Address" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin-bottom:12px;">
+        <input type="text" id="ship-city" placeholder="City" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin-bottom:12px;">
+        <input type="text" id="ship-pincode" placeholder="Pincode" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin-bottom:12px;">
+      </div>
+
+      <!-- Order Summary -->
+      <div style="background:white; padding:25px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.08);">
+        <h3 style="color:#1e3a8a; margin-bottom:20px;">Order Summary</h3>
+        <div id="order-items"></div>
+        <div style="display:flex; justify-content:space-between; margin-top:20px; font-size:20px; font-weight:bold; color:#1e3a8a;">
+          <span>Total:</span>
+          <span>₹<span id="order-total">0</span></span>
+        </div>
+        <button class="btn" style="margin-top:20px; padding:15px;" onclick="placeOrderWithPayment()">Place Order & Pay</button>
+        <p id="order-msg" style="margin-top:15px; font-size:14px;"></p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 TechStore. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>renderCheckout();</script>
+</body>
+</html>

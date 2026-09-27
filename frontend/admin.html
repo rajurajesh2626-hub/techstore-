@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - TechStore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <a href="index.html" class="logo">TechStore Admin</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart <span id="cart-count" class="badge">0</span></a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container products-section">
+    <h2>Admin Panel</h2>
+
+    <!-- Login Form -->
+    <div id="login-box" style="max-width:400px; margin:40px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.08);">
+      <h3 style="color:#1e3a8a; margin-bottom:20px;">Admin Login</h3>
+      <input type="email" id="admin-email" placeholder="Email" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin-bottom:15px; font-size:15px;">
+      <input type="password" id="admin-password" placeholder="Password" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin-bottom:15px; font-size:15px;">
+      <button class="btn" onclick="adminLogin()">Login</button>
+      <p id="login-msg" style="color:#ef4444; margin-top:10px; font-size:14px;"></p>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-box" style="display:none;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <h3 style="color:#1e3a8a;">Add New Product</h3>
+        <button class="btn" style="width:auto; background:#ef4444; padding:8px 20px;" onclick="logout()">Logout</button>
+      </div>
+
+      <div style="background:white; padding:25px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.08); margin-bottom:30px;">
+        <input type="text" id="p-name" placeholder="Product name" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin-bottom:12px;">
+        <textarea id="p-desc" placeholder="Description" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin-bottom:12px; resize:vertical; min-height:80px;"></textarea>
+        <input type="number" id="p-price" placeholder="Price (₹)" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin-bottom:12px;">
+        <input type="text" id="p-image" placeholder="Image URL (https://...)" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin-bottom:12px;">
+        <input type="text" id="p-sizes" placeholder="Sizes (comma separated: S,M,L,XL)" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin-bottom:12px;">
+        <input type="number" id="p-stock" placeholder="Stock quantity" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin-bottom:15px;">
+        <button class="btn" onclick="addProduct()">Add Product</button>
+        <p id="product-msg" style="margin-top:10px; font-size:14px;"></p>
+      </div>
+
+      <h3 style="color:#1e3a8a; margin-bottom:15px;">All Products</h3>
+      <div id="admin-products"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 TechStore. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>checkAdminLogin();</script>
+</body>
+</html>
+{
+  "message": "Admin created successfully",
+  "admin": {
+    "email": "admin@techstore.com",
+    "isAdmin": true
+  }
+}
