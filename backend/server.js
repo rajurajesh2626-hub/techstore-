@@ -1,8 +1,8 @@
 const dns = require('dns');
 dns.setServers(['8.8.8.8', '8.8.4.4']);
 dns.setDefaultResultOrder('ipv4first');
-const dns = require('dns');
-dns.setDefaultResultOrder('ipv4first');
+
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
