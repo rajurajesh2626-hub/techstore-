@@ -1,4 +1,4 @@
-const API_URL = 'https://techstore-backend.onrender.com/api';
+const API_URL = 'https://techstore-zt4n.onrender.com/api';
 
 // Load products on homepage
 async function loadProducts() {
