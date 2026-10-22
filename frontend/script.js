@@ -18,6 +18,10 @@ async function loadProducts() {
         <div class="product-info">
           <h3>${p.name}</h3>
           <p style="font-size:14px;color:#666">${p.description.substring(0, 60)}...</p>
+          
+          <p style="font-size:13px; color:#555; margin-top:8px;"><b>Size:</b> ${p.sizes && p.sizes.length > 0 ? p.sizes.join(', ') : 'N/A'}</p>
+          <p style="font-size:13px; color:#ef4444; margin-bottom:8px;"><b>Stock:</b> ${p.stock} left</p>
+          
           <div class="price">₹${p.price}</div>
           <button class="btn" onclick="addToCart('${p._id}')">Add to Cart</button>
         </div>
