@@ -399,36 +399,40 @@ async function placeOrderWithPayment() {
       description: 'Order Payment',
       order_id: razorpayOrder.id,
       handler: async function(response) {
-        // 3. Verify payment
-        const verifyRes = await fetch(`${API_URL}/orders/verify-payment`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-            orderData: {
-              items: cart.map(item => ({
-                product: item._id,
-                name: item.name,
-                price: item.price,
-                quantity: item.quantity
-              })),
-              totalAmount: total,
-              address: { name, phone, street, city, pincode }
-            }
-          })
-        });
+  // 3. Verify payment
+  const verifyRes = await fetch(`${API_URL}/orders/verify-payment`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      razorpay_order_id: response.razorpay_order_id,
+      razorpay_payment_id: response.razorpay_payment_id,
+      razorpay_signature: response.razorpay_signature,
+      orderData: {
+        items: cart.map(item => ({
+          product: item._id,
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity
+        })),
+        totalAmount: total,
+        address: { name, phone, street, city, pincode }
+      }
+    })
+  });
 
-        const result = await verifyRes.json();
-        if (result.success) {
-          localStorage.removeItem('cart');
-          alert('✅ Payment successful! Order placed.');
-          window.location.href = 'index.html';
-        } else {
-          alert('❌ Payment verification failed');
-        }
-      },
+  const result = await verifyRes.json();
+  if (result.success) {
+    localStorage.removeItem('cart'); // Cart-a clear pannum
+    
+    // ✅ CUSTOMER NOTIFICATION
+    alert('🎉 Order Placed Successfully!\n\nThank you for shopping with TechStore.\nYour order will be delivered soon.');
+    
+    // ✅ HOME PAGE-KU REDIRECT
+    window.location.href = 'index.html'; 
+  } else {
+    alert('❌ Payment verification failed. Please try again.');
+  }
+},
       prefill: {
         name: name,
         contact: phone
